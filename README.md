@@ -1,2 +1,2 @@
 # FP-subrip
-a programe using to rip subtitles from fpt play
+a programe used to rip subtitles from fpt play
