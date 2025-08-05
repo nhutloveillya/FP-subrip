@@ -1,0 +1,16 @@
+[project]
+name = "fpsubrip"
+version = "0.0.1"
+authors = [
+  { name="NhutloveIllya", email="nhutt6904@gmail.com" },
+]
+description = "A small package to download subtitles from fpt play"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/nhutloveillya/FP-subrip"

@@ -6,7 +6,6 @@ a programe used to rip subtitles from fpt play
 
 
 
-## Example
+## Usage
 
-![](https://github.com/nhutloveillya/FP-subrip/blob/main/example.jpg?raw=true)
 
