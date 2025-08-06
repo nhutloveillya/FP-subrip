@@ -12,8 +12,5 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
-[project.scripts]
-fpsub = "mfpsubrip.main:main" # Defines the CLI command and its entry point
-
 [project.urls]
 Homepage = "https://github.com/nhutloveillya/FP-subrip"
