@@ -75,7 +75,7 @@ def cli():
     parser.add_argument('-e', type=int, required=True, help='Number of episodes you want to download')
     parser.add_argument('-s', type=str, required=True, help='Directory to save subtitles')
     parser.add_argument('-v', '--version', action='version', version='%(prog)s 1.0')
-    parser.add_argument('cmd', choices=['dl', 'dll'], help='Command to execute: "dl" for download, "dll" for print links')
+    parser.add_argument('cmd', choices=['dl', 'dll'], help='Command to execute: "dl" for download, "dll" for print download links')
 
     args = parser.parse_args()
     if args.cmd == 'dll':

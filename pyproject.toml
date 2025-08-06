@@ -1,6 +1,6 @@
 [project]
 name = "fpsubrip"
-version = "0.0.1"
+version = "0.1.0"
 authors = [
   { name="NhutloveIllya", email="nhutt6904@gmail.com" },
 ]
@@ -13,7 +13,7 @@ classifiers = [
 ]
 
 [project.scripts]
-fpsubrip = "fpsubrip:cli" # Defines the CLI command and its entry point
+fpsub = "fpsubrip:main" # Defines the CLI command and its entry point
 
 [project.urls]
 Homepage = "https://github.com/nhutloveillya/FP-subrip"
