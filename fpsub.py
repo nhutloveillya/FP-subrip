@@ -73,7 +73,7 @@ def main():
     parser.add_argument('-yp', type=str, required=True, help='Year production (YYYY)')
     parser.add_argument('-l', type=str, required=True, help='Language of series (e.g., "JP", "EN")')
     parser.add_argument('-e', type=int, required=True, help='Number of episodes you want to download')
-    parser.add_argument('-s', type=str, required=True, help='Directory to save subtitles')
+    parser.add_argument('-s', type=str, required=False, help='Directory to save subtitles')
     parser.add_argument('-v', '--version', action='version', version='%(prog)s 1.0')
     parser.add_argument('cmd', choices=['dl', 'dll'], help='Command to execute: "dl" for download, "dll" for print download links')
 
