@@ -65,7 +65,7 @@ def parselink(u):
     u=1
 
 
-def cli():
+def main():
     parser = argparse.ArgumentParser(description='Download FPT Play subtitles.')
     parser.add_argument('-y', type=str, required=True, help='Year of the upload (YYYY)')
     parser.add_argument('-m', type=int, required=True, help='First month of the upload (1-12)')
@@ -84,4 +84,4 @@ def cli():
         subdl(args.y, args.m, args.n, args.yp, args.l, args.e, args.s)
 
 if __name__ == "__main__":
-    cli()
+    main()
