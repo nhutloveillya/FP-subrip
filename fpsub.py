@@ -26,21 +26,25 @@ def subdl(yup, mon, name, yprd, lang, eps, save):
         
     for i in range(int(eps)):
         k = True
-        while k == True:
-            try:
-                url=f'{link}{yup}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
-                req = requests.get(url)
-                req.raise_for_status()
-                urlp=url.split('/')
-                fname=urlp[-1]
-                path = f"{save}\\{name}\\{fname}"
-                os.makedirs(f'{save}\\{name}', exist_ok=True)
-                with open(path, 'wb') as f:
-                    f.write(req.content)
-                k = False
-                print(f'Download completed {fname}')
-            except:
-                montest = num2tostr(int(montest)+1)    
+        try:
+            while k == True:
+                    try:
+                        url=f'{link}{yup}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
+                        req = requests.get(url)
+                        req.raise_for_status()
+                        urlp=url.split('/')
+                        fname=urlp[-1]
+                        path = f"{save}\\{name}\\{fname}"
+                        os.makedirs(f'{save}\\{name}', exist_ok=True)
+                        with open(path, 'wb') as f:
+                            f.write(req.content)
+                        k = False
+                        print(f'Download completed {fname}')
+                    except:
+                        montest = num2tostr(int(montest)+1)
+        except requests.exceptions.RequestException as e:
+            print(f'Error downloading {name} episode {epi}: {e}')
+            continue
         epi = num3tostr(int(epi)+1)
 
 def getsubdll(yup, mon, name, yprd, lang, eps): 
@@ -50,15 +54,19 @@ def getsubdll(yup, mon, name, yprd, lang, eps):
         
     for i in range(int(eps)):
         k = True
-        while k == True:
-            try:
-                url=f'{link}{yup}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
-                req = requests.get(url)
-                req.raise_for_status()
-                print(f'sub DLL of {name} ep {epi}: {url}')
-                k = False
-            except:
-                montest = num2tostr(int(montest)+1)    
+        try:
+            while k == True:
+                try:
+                    url=f'{link}{yup}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
+                    req = requests.get(url)
+                    req.raise_for_status()
+                    print(f'sub DLL of {name} ep {epi}: {url}')
+                    k = False
+                except:
+                    montest = num2tostr(int(montest)+1)   
+        except requests.exceptions.RequestException as e:
+            print(f'Error fetching download link for {name} episode {epi}: {e}')
+            continue 
         epi = num3tostr(int(epi)+1)
 
 def parselink(u):
