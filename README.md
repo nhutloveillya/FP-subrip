@@ -7,7 +7,7 @@ a programe used to rip subtitles from fpt play
 ## Installation
 Clone this repository
 ```bash
-git https://github.com/nhutloveillya/FP-subrip.git
+git clone https://github.com/nhutloveillya/FP-subrip.git
 cd FP-subrip
 ```
 Using pip to install pkg
