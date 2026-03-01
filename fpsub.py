@@ -28,20 +28,20 @@ def subdl(yup, mon, name, yprd, lang, eps, save):
         k = True
         try:
             while k == True:
-                    try:
-                        url=f'{link}{yup}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
-                        req = requests.get(url)
-                        req.raise_for_status()
-                        urlp=url.split('/')
-                        fname=urlp[-1]
-                        path = f"{save}\\{name}\\{fname}"
-                        os.makedirs(f'{save}\\{name}', exist_ok=True)
-                        with open(path, 'wb') as f:
-                            f.write(req.content)
-                        k = False
-                        print(f'Download completed {fname}')
-                    except:
-                        montest = num2tostr(int(montest)+1)
+                try:
+                    url=f'{link}{yup}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
+                    req = requests.get(url)
+                    req.raise_for_status()
+                    urlp=url.split('/')
+                    fname=urlp[-1]
+                    path = f"{save}\\{name}\\{fname}"
+                    os.makedirs(f'{save}\\{name}', exist_ok=True)
+                    with open(path, 'wb') as f:
+                        f.write(req.content)
+                    k = False
+                    print(f'Download completed {fname}')
+                except:
+                    montest = num2tostr(int(montest)+1)
         except requests.exceptions.RequestException as e:
             print(f'Error downloading {name} episode {epi}: {e}')
             continue
