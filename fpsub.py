@@ -23,12 +23,11 @@ def subdl(yup, mon, name, yprd, lang, eps, save):
     link = 'http://fsub.fptplay.net.vn/OTT/'
     montest = num2tostr(mon)
     epi = num3tostr(1)
-        
+    year = yup
     for i in range(int(eps)):
         k = True
         while k == True:
             try:
-                year=yup
                 url=f'{link}/{year}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
                 req = requests.get(url)
                 req.raise_for_status()
@@ -56,12 +55,13 @@ def getsubdll(yup, mon, name, yprd, lang, eps):
     link = 'http://fsub.fptplay.net.vn/OTT/'
     montest = num2tostr(mon)
     epi = num3tostr(1)
-        
+    year = yup
+
     for i in range(int(eps)):
         k = True
         while k == True:
             try:
-                url=f'{link}{yup}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
+                url=f'{link}{year}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
                 req = requests.get(url)
                 req.raise_for_status()
                 print(f'sub DLL of {name} ep {epi}: {url}')
