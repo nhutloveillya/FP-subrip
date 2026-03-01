@@ -1,12 +1,13 @@
-#FP-subrip
+# FP-subrip
+
 a programe used to rip subtitles from fpt play
 
-##Dependencies
+## Dependencies
 - [Request](https://pypi.org/project/requests/)
 ## Installation
 Clone this repository
 ```bash
-git https://github.com/nhutloveillya/FP-subrip.git
+git clone https://github.com/nhutloveillya/FP-subrip.git
 cd FP-subrip
 ```
 Using pip to install pkg
@@ -14,7 +15,7 @@ Using pip to install pkg
 pip install ./
 ```
 <!-- Auto generated -->
-##Usage
+## Usage
 ```
 fpsub [dl,dll] [option]
 ```
