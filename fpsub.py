@@ -3,7 +3,7 @@ import os
 import argparse
 
 def num3tostr(num3):
-    str3 = str(int(num3))
+    str3 = str(num3)
     if len(str3) == 1:
         return f'00{str3}'
     if len(str3) == 2:
@@ -12,7 +12,7 @@ def num3tostr(num3):
         return str3
 
 def num2tostr(num2):
-    str2 = str(int(num2))
+    str2 = str(num2)
     if len(str2) == 1:
         return f'0{str2}'
     if len(str2) == 2:
@@ -28,7 +28,8 @@ def subdl(yup, mon, name, yprd, lang, eps, save):
         k = True
         while k == True:
             try:
-                url=f'{link}{yup}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
+                year=yup
+                url=f'{link}/{year}/{montest}/{name}_{yprd}_{lang}_{epi}.vie.vtt'
                 req = requests.get(url)
                 req.raise_for_status()
                 urlp=url.split('/')
@@ -40,7 +41,15 @@ def subdl(yup, mon, name, yprd, lang, eps, save):
                 k = False
                 print(f'Download completed {fname}')
             except:
-                montest = num2tostr(int(montest)+1)    
+                try:
+                    if int(montest) >= 12:
+                        montest = '01'
+                        year = str(int(year) + 1)
+                    else:
+                        montest = num2tostr(int(montest)+1)
+                except ValueError:
+                    print(f'Error: Invalid month {mon}. Please check the month value.')
+                    break
         epi = num3tostr(int(epi)+1)
 
 def getsubdll(yup, mon, name, yprd, lang, eps): 
@@ -58,13 +67,20 @@ def getsubdll(yup, mon, name, yprd, lang, eps):
                 print(f'sub DLL of {name} ep {epi}: {url}')
                 k = False
             except:
-                montest = num2tostr(int(montest)+1)    
+                try:
+                    if int(montest) >= 12:
+                        montest = '01'
+                        year = str(int(year) + 1)
+                    else:
+                        montest = num2tostr(int(montest)+1)
+                except ValueError:
+                    print(f'Error: Invalid month {mon}. Please check the month value.')
+                    break
         epi = num3tostr(int(epi)+1)
 
 def parselink(u):
     u=1
-
-
+    
 def main():
     parser = argparse.ArgumentParser(description='Download FPT Play subtitles.')
     parser.add_argument('-y', type=str, required=True, help='Year of the upload (YYYY)')
@@ -85,3 +101,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
